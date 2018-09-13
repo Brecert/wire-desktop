@@ -34,6 +34,7 @@ const APP_PATH = app.getAppPath();
 const CERT_ERR_HTML = fileUrl(path.join(APP_PATH, 'html', 'certificate-error.html'));
 const LOG_DIR = path.join(app.getPath('userData'), 'logs');
 const PRELOAD_JS = path.join(APP_PATH, 'js', 'preload.js');
+const WEBVIEW_JS = path.join(APP_PATH, 'js', 'webview.js');
 const WRAPPER_CSS = path.join(APP_PATH, 'css', 'wrapper.css');
 
 // Configuration persistence
@@ -372,6 +373,10 @@ class ElectronWrapperInit {
           // Open webview links outside of the app
           contents.on('new-window', openLinkInNewWindow);
           contents.on('will-navigate', willNavigateInWebview);
+
+          contents.openDevTools();
+          contents.insertCSS('html,body{ background-color: #FF0000 !important;}');
+          contents.executeJavaScript(fs.readFileSync(WEBVIEW_JS, 'utf8'));
 
           contents.session.setCertificateVerifyProc((request, cb) => {
             const {hostname = '', certificate = {}, error} = request;

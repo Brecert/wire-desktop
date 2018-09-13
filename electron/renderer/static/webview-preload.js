@@ -27,6 +27,9 @@ const EVENT_TYPE = require('../../js/lib/eventType');
 const {desktopCapturer, ipcRenderer, remote, webFrame} = require('electron');
 const {app} = remote;
 
+// this.insertCSS('* { background-color: #FF0000 !important;}')
+// global.console.log(this)
+
 webFrame.setZoomFactor(1.0);
 webFrame.setVisualZoomLevelLimits(1, 1);
 webFrame.registerURLSchemeAsBypassingCSP('file');

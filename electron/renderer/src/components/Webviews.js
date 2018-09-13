@@ -25,6 +25,7 @@ import * as EVENT_TYPE from '../lib/eventType';
 class Webviews extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       canDelete: this.getCanDeletes(props.accounts),
     };
@@ -139,6 +140,7 @@ class Webviews extends Component {
         {this.props.accounts.map((account, index) => (
           <div className="Webviews-container" key={account.id}>
             <Webview
+              ref="webview"
               className={`Webview ${account.visible ? '' : 'hide'}`}
               data-accountid={account.id}
               visible={account.visible}

@@ -39,6 +39,8 @@ class Webview extends Component {
 
     this.webview.addEventListener('ipc-message', this._onIpcMessage);
 
+    console.log(this);
+
     this._focusWebview();
   }
 

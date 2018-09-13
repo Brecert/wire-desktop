@@ -41,6 +41,11 @@ const config = {
       hostname: ['open.spotify.com', 'embed.spotify.com'],
       name: 'Spotify',
     },
+    {
+      allowedExternalLinks: ['rawgit.com'],
+      hostname: ['rawgit.com'],
+      name: 'RawGit',
+    },
   ],
 
   GOOGLE_CLIENT_ID: '',
